@@ -1,6 +1,9 @@
 import React from 'react';
-import './Quote.css';
-const quotes = require('./quotes.json')
+import 'font-awesome/css/font-awesome.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './app.css';
+const quotes = require('./quotes.json');
+
 
 
 class Quote extends React.Component {
@@ -31,12 +34,19 @@ class Quote extends React.Component {
 
   render() {
     return (
-      <div id="quote-box">
-        <h1 id="text">Quote: {this.state.text}</h1>
-        <h2 id="author">Author: {this.state.author}</h2>
-        <button id="new-quote" onClick={this.generateNewQuote.bind(this)}>New Quote</button>
-        <a id="tweet-quote" rel="noopener noreferrer" href={this.state.href} target="_blank">Tweet Quote</a>
+    <body className="text-center">
+      <div id="quote-box" className="cover-container d-flex h-100 p-3 mx-auto flex-column">
+        <main role="main" className="inner cover">
+          <h1 className="cover-heading">Generate a quote!</h1>
+          <h1 id="text" className="lead">{this.state.text}</h1>
+          <h2 id="author">-{this.state.author}</h2>
+          <p className="lead">
+            <button id="new-quote" onClick={this.generateNewQuote.bind(this)} className="btn btn-lg btn-primary">New Quote</button>
+            <a id="tweet-quote" rel="noopener noreferrer" href={this.state.href} target="_blank"><i className="fa fa-twitter" aria-hidden="true"></i>Tweet it!</a>
+          </p>
+        </main>
       </div>
+    </body>
     );
   }
 }
